@@ -54,7 +54,6 @@ linters:
     - prealloc
     - predeclared
     - asciicheck
-    - revive
     - forbidigo
     - makezero
     #- interfacer
