@@ -22,16 +22,3 @@ jobs:
           git add --all
           git commit -m "ci(chore): Fix stylings"
           git push
-
-  revive:
-    name: lint_revive
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: revive
-        uses: morphy2k/revive-action@v1.4.1
-        with:
-          config: .revive.toml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

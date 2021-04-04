@@ -56,6 +56,7 @@ linters:
     - asciicheck
     - forbidigo
     - makezero
+    - golint
     #- interfacer
 
   # don't enable:
@@ -80,7 +81,7 @@ run:
 
 # output configuration options
 output:
-  format: 'colored-line-number'
+  format: "colored-line-number"
   print-issued-lines: true
   print-linter-name: true
   uniq-by-line: true
@@ -88,3 +89,4 @@ output:
 issues:
   # Fix found issues (if it's supported by the linter)
   fix: true
+  exclude-use-default: false
