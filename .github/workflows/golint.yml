@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   golangci:
-    name: lint
+    name: lint_golangci-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

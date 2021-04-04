@@ -1,4 +1,4 @@
-name: Lint
+name: Suggester
 
 on: [pull_request]
 

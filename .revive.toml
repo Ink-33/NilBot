@@ -2,17 +2,17 @@
 ignoreGeneratedHeader = true
 
 # Sets the default severity to "warning"
-severity = "error"
+severity = "warning"
 
 # Sets the default failure confidence. This means that linting errors
 # with less than 0.8 confidence will be ignored.
 confidence = 0.0
 
 # Sets the error code for failures with severity "error"
-errorCode = 1
+errorCode = 0
 
 # Sets the error code for failures with severity "warning"
-warningCode = 1
+warningCode = 0
 
 [rule.blank-imports]
 [rule.context-as-argument]
