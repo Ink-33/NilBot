@@ -1,4 +1,4 @@
-package nilbot
+package core
 
 type Event struct {
 	Time     int64 `json:"time"`

@@ -1,4 +1,4 @@
-package nilbot
+package core
 
 type BotClient interface {
 	Send() error

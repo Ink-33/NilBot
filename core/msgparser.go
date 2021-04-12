@@ -1,4 +1,4 @@
-package nilbot
+package core
 
 import "sync"
 
