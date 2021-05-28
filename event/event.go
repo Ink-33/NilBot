@@ -1,4 +1,4 @@
-package core
+package event
 
 type Event struct {
 	Time     int64 `json:"time"`
