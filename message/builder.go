@@ -49,7 +49,7 @@ func (m *MsgBuilder) Forward(id string) *MsgBuilder {
 	return m
 }
 
-// Gife append an gift message element to message array.
+// Gift append an gift message element to message array.
 func (m *MsgBuilder) Gift(qq, giftID string) *MsgBuilder {
 	m.msg = append(m.msg, MsgElement{"type": "gift", "data": MsgElement{"qq": qq, "id": giftID}})
 	return m
@@ -173,6 +173,7 @@ func (m *MsgBuilder) Marshal() ([]byte, error) {
 	return b, nil
 }
 
+// GetArray form MsgBuilder
 func (m *MsgBuilder) GetArray() MsgArray {
 	return m.msg
 }

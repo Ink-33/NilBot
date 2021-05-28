@@ -1,5 +1,6 @@
 package event
 
+// Event use to parser OneBot event to struct
 type Event struct {
 	Time     int64 `json:"time"`
 	Duration int64 `json:"duration"`
@@ -30,6 +31,8 @@ type Event struct {
 
 	Online bool `json:"online"`
 }
+
+// Sender is the struct used in Event
 type Sender struct {
 	UserID   int64  `json:"user_id"`
 	NickName string `json:"nickname"`
@@ -41,17 +44,23 @@ type Sender struct {
 	Role     string `json:"role"`
 	Title    string `json:"title"`
 }
+
+// Anonymous is the struct used in Event
 type Anonymous struct {
 	ID   int64  `json:"id"`
 	Name string `json:"name"`
 	Flag string `json:"flag"`
 }
+
+// File is the struct used in Event
 type File struct {
 	ID    string `json:"id"`
 	Name  string `json:"name"`
 	Size  int64  `json:"size"`
 	BusID int64  `json:"busid"`
 }
+
+// Device is the struct used in Event
 type Device struct {
 	APPID int64  `json:"app_id"`
 	Name  string `json:"device_name"`

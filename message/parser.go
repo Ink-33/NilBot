@@ -28,6 +28,7 @@ func MsgParser(message []byte) ([]ParsedMessageElement, error) {
 	return pme, nil
 }
 
+// Get value form ParsedMessageElement
 func (e *ParsedMessageElement) Get(key string) string {
 	r := e.data["data"].(map[string]interface{})[key]
 	if r != nil {
@@ -36,10 +37,12 @@ func (e *ParsedMessageElement) Get(key string) string {
 	return ""
 }
 
+// GetElement form ParsedMessageElement
 func (e *ParsedMessageElement) GetElement() MsgElement {
 	return e.data
 }
 
+// Type reports the type of ParsedMessageElement
 func (e *ParsedMessageElement) Type() string {
 	return e.data["type"].(string)
 }

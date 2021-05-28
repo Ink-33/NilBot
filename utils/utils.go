@@ -8,9 +8,9 @@ import (
 
 // Get web Content by using GET request.
 func Get(addr string) (body []byte, err error) {
-	content := make([]byte, 0)
+	var content []byte
 	client := &http.Client{
-		Timeout:   10 * time.Second,
+		Timeout: 10 * time.Second,
 	}
 	request, err := http.NewRequest("GET", addr, nil)
 	request.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4239.0 Safari/537.36")
@@ -31,9 +31,9 @@ func Get(addr string) (body []byte, err error) {
 
 // PostJSON to addr and get response body
 func PostJSON(addr string, postbody io.Reader) (body []byte, err error) {
-	content := make([]byte, 0)
+	var content []byte
 	client := &http.Client{
-		Timeout:   10 * time.Second,
+		Timeout: 10 * time.Second,
 	}
 	request, err := http.NewRequest("POST", addr, postbody)
 	request.Header.Set("Content-Type", "application/json")
