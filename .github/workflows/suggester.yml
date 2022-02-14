@@ -15,6 +15,6 @@ jobs:
           version: latest
 
       - name: Suggester
-        uses: reviewdog/action-suggester@v1.3
+        uses: reviewdog/action-suggester@v1.5
         with:
           tool_name: golangci-lint
