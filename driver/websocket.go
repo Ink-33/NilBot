@@ -51,11 +51,11 @@ TRY:
 	c.conn = conn
 	resp.Body.Close()
 
-	logger.Info("Connect to websocket server %v successfully.", c.URL)
+	logger.Info("Connected to websocket server %v .", c.URL)
 }
 
 // Listen websocket events.
-func (c *WSClient) Listen(handler nilbot.EventHandler) {
+func (c *WSClient) Listen(handler ...nilbot.EventHandler) {
 	for {
 		mtype, payload, err := c.conn.ReadMessage()
 		if err != nil {
@@ -77,8 +77,8 @@ func (c *WSClient) Listen(handler nilbot.EventHandler) {
 					close(ch.(chan *nilbot.APIResponse))
 				}
 			} else {
-				if resp.Get("meta_event_type").Str != "heartbeat" {
-					go handler.Do(payload, c)
+				for k := range handler {
+					go handler[k].Handle(payload, c)
 				}
 			}
 		}

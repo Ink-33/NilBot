@@ -1,9 +1,13 @@
 package message
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/Ink-33/NilBot/utils"
+)
 
 // MsgElement is an element of array message.
-type MsgElement map[string]interface{}
+type MsgElement map[string]any
 
 // MsgArray contains MsgElements, used to send and revice message by using OneBot array message format.
 type MsgArray []MsgElement
@@ -17,7 +21,7 @@ type MsgBuilder struct {
 // Usually if the function that can recive more than one parameter need to use this.
 //
 // For more detail, please read document.
-type MsgBuilderArg interface{}
+type MsgBuilderArg any
 
 // At append an at message element to message array.
 func (m *MsgBuilder) At(qq string) *MsgBuilder {
@@ -148,13 +152,13 @@ func (m *MsgBuilder) AppendArray(a MsgArray) *MsgBuilder {
 	return m
 }
 
-// Marshal message array to []byte.
-func (m *MsgBuilder) Marshal() ([]byte, error) {
+// Marshal message array to string.
+func (m *MsgBuilder) Marshal() (string, error) {
 	b, err := json.Marshal(m.msg)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
-	return b, nil
+	return utils.B2S(b), nil
 }
 
 // GetArray form MsgBuilder

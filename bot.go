@@ -9,7 +9,7 @@ type APICaller interface {
 
 // EventHandler basic abilities of event handler.
 type EventHandler interface {
-	Do(payload []byte, apiCaller APICaller)
+	Handle(payload []byte, apiCaller APICaller)
 }
 
 // APIRequest is used to communicate with onebot client.

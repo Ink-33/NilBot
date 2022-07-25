@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"time"
+	"unsafe"
 )
 
 // Get web Content by using GET request.
@@ -51,4 +52,9 @@ func PostJSON(addr string, postbody io.Reader) (body []byte, err error) {
 		return nil, err
 	}
 	return content, nil
+}
+
+// B2S convert byte slice to string.
+func B2S(b []byte) string {
+	return *(*string)(unsafe.Pointer(&b))
 }
