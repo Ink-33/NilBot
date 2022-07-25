@@ -1,4 +1,4 @@
 {
-    "go.lintOnSave": "off",
+    "go.lintOnSave": "package",
     "files.eol": "\n"
 }

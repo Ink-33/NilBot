@@ -2,9 +2,16 @@ module github.com/Ink-33/NilBot
 
 go 1.18
 
-require github.com/json-iterator/go v1.1.12
+require (
+	github.com/RomiChan/websocket v1.4.3-0.20220227141055-9b2c6168c9c5
+	github.com/google/uuid v1.3.0
+	github.com/pkg/errors v0.9.1
+	github.com/tidwall/gjson v1.14.1
+	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
+)
 
 require (
-	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
-	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/tidwall/match v1.1.1 // indirect
+	github.com/tidwall/pretty v1.2.0 // indirect
+	golang.org/x/sys v0.0.0-20220111092808-5a964db01320 // indirect
 )

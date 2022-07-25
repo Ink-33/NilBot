@@ -1,6 +1,9 @@
 package message
 
-import "sync"
+import (
+	"encoding/json"
+	"sync"
+)
 
 // ParsedMessageElement is
 type ParsedMessageElement struct {

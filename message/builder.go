@@ -1,12 +1,6 @@
 package message
 
-import (
-	"fmt"
-
-	jsoniter "github.com/json-iterator/go"
-)
-
-var json = jsoniter.ConfigFastest
+import "encoding/json"
 
 // MsgElement is an element of array message.
 type MsgElement map[string]interface{}
@@ -62,8 +56,6 @@ func (m *MsgBuilder) Image(args MsgBuilderArg) *MsgBuilder {
 		m.msg = append(m.msg, MsgElement{"type": "image", "data": args})
 	case string:
 		m.msg = append(m.msg, MsgElement{"type": "image", "data": MsgElement{"file": args}})
-	default:
-		m.msg = append(m.msg, MsgElement{"type": "text", "data": MsgElement{"text": fmt.Sprintf("Unexpected args type: %T", args)}})
 	}
 	return m
 }
@@ -89,8 +81,6 @@ func (m *MsgBuilder) Node(args MsgBuilderArg) *MsgBuilder {
 		m.msg = append(m.msg, MsgElement{"type": "node", "data": args})
 	case string:
 		m.msg = append(m.msg, MsgElement{"type": "node", "data": MsgElement{"id": args}})
-	default:
-		m.msg = append(m.msg, MsgElement{"type": "text", "data": MsgElement{"text": fmt.Sprintf("Unexpected args type: %T", args)}})
 	}
 	return m
 }
@@ -108,8 +98,6 @@ func (m *MsgBuilder) Record(args MsgBuilderArg) *MsgBuilder {
 		m.msg = append(m.msg, MsgElement{"type": "record", "data": args})
 	case string:
 		m.msg = append(m.msg, MsgElement{"type": "record", "data": MsgElement{"file": args}})
-	default:
-		m.msg = append(m.msg, MsgElement{"type": "text", "data": MsgElement{"text": fmt.Sprintf("Unexpected args type: %T", args)}})
 	}
 	return m
 }
@@ -121,8 +109,6 @@ func (m *MsgBuilder) Share(args MsgBuilderArg) *MsgBuilder {
 		m.msg = append(m.msg, MsgElement{"type": "share", "data": args})
 	case string:
 		m.msg = append(m.msg, MsgElement{"type": "share", "data": MsgElement{"url": args}})
-	default:
-		m.msg = append(m.msg, MsgElement{"type": "text", "data": MsgElement{"text": fmt.Sprintf("Unexpected args type: %T", args)}})
 	}
 	return m
 }
@@ -140,8 +126,6 @@ func (m *MsgBuilder) Vedio(args MsgBuilderArg) *MsgBuilder {
 		m.msg = append(m.msg, MsgElement{"type": "vedio", "data": args})
 	case string:
 		m.msg = append(m.msg, MsgElement{"type": "vedio", "data": MsgElement{"file": args}})
-	default:
-		m.msg = append(m.msg, MsgElement{"type": "text", "data": MsgElement{"text": fmt.Sprintf("Unexpected args type: %T", args)}})
 	}
 	return m
 }
