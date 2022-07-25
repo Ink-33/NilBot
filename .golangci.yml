@@ -4,7 +4,7 @@ linters-settings:
     ignoretests: true
 
   goimports:
-    local-prefixes: github.com/SakuraBot-dev/NilBot
+    local-prefixes: github.com/Ink-33/NilBot
 
   gocritic:
     disabled-checks:
