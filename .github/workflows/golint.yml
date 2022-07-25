@@ -1,20 +1,30 @@
 name: Lint
 
-on: [push]
+on: [push,pull_request,workflow_dispatch]
 
 jobs:
   golangci:
-    name: lint_golangci-lint
+    name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3
+
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.2.1
+        with:
+          go-version: 1.18
 
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v3.2.0
+        uses: golangci/golangci-lint-action@v3
         with:
           version: latest
 
+      - name: Tests
+        run: |
+          go test $(go list ./...)
+
       - name: Commit back
+        if: ${{ github.repository_owner == 'Ink-33' && !github.event.pull_request }}
         continue-on-error: true
         run: |
           git config --local user.name 'github-actions[bot]'
@@ -22,3 +32,10 @@ jobs:
           git add --all
           git commit -m "ci(chore): Fix stylings"
           git push
+
+      - name: Suggester
+        if: ${{ github.event.pull_request }}
+        uses: reviewdog/action-suggester@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tool_name: golangci-lint
