@@ -8,7 +8,7 @@ import (
 var logger *log.Logger
 
 func init() {
-	logger = log.New(os.Stdout, "[AntiEffort] ", log.Ldate|log.Ltime|log.Lmsgprefix)
+	logger = log.New(os.Stdout, "[NilBot Core] ", log.Ldate|log.Ltime|log.Lmsgprefix)
 	// TODO: add log rotation
 }
 
