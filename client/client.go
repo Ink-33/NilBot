@@ -11,6 +11,7 @@ import (
 type Bot struct {
 	APICaller   nilbot.APICaller
 	SelfID      string
+	NickName    string
 	AccessToken string
 	Timeout     uint8
 	URL         string
@@ -30,6 +31,7 @@ func (b *Bot) Connect(handler ...nilbot.EventHandler) {
 			Params: nil,
 		})
 		b.SelfID = resp.Data.Get("user_id").String()
+		b.NickName = resp.Data.Get("nickname").String()
 	}()
 	b.APICaller = ws
 }

@@ -60,6 +60,7 @@ func (c *WSClient) Listen(handler ...nilbot.EventHandler) {
 		mtype, payload, err := c.conn.ReadMessage()
 		if err != nil {
 			logger.Warn("Disconnected from websocket server %v", c.URL)
+			c.conn = nil
 			c.Connect()
 		}
 		if mtype == websocket.TextMessage {
@@ -89,6 +90,9 @@ func (c *WSClient) Listen(handler ...nilbot.EventHandler) {
 func (c *WSClient) CallAPI(req *nilbot.APIRequest) (resp *nilbot.APIResponse, err error) {
 	if req == nil {
 		return nil, errors.New("request is nil")
+	}
+	if c.conn == nil {
+		return nil, errors.New("connection does not create or has been closed")
 	}
 	req.Echo = uuid.NewString()
 	ch := make(chan *nilbot.APIResponse, 1)
