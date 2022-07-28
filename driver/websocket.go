@@ -65,7 +65,7 @@ func (c *WSClient) Listen(handler ...nilbot.EventHandler) {
 		if mtype == websocket.TextMessage {
 			resp := gjson.ParseBytes(payload)
 			if resp.Get("echo").Exists() {
-				if ch, ok := c.rayIDMap.LoadAndDelete(resp.Get("echo")); ok {
+				if ch, ok := c.rayIDMap.LoadAndDelete(resp.Get("echo").String()); ok {
 					ch.(chan *nilbot.APIResponse) <- &nilbot.APIResponse{
 						Data:    resp.Get("data"),
 						Echo:    resp.Get("echo").Str,
