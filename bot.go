@@ -1,6 +1,8 @@
 package nilbot
 
-import "github.com/tidwall/gjson"
+import (
+	"github.com/tidwall/gjson"
+)
 
 // APICaller defines basic abilities of supported api caller.
 type APICaller interface {
