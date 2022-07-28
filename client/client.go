@@ -23,7 +23,7 @@ func (b *Bot) Connect(handler ...nilbot.EventHandler) {
 	}
 	ws := driver.NewWebSocketClient(b.URL, b.AccessToken, time.Duration(b.Timeout)*time.Second)
 	ws.Connect()
-	go ws.Listen()
+	go ws.Listen(handler...)
 	func() {
 		resp, _ := ws.CallAPI(&nilbot.APIRequest{
 			Action: "get_login_info",
