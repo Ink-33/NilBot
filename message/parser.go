@@ -33,11 +33,7 @@ func MsgParser(message []byte) ([]ParsedMessageElement, error) {
 
 // Get value form ParsedMessageElement
 func (e *ParsedMessageElement) Get(key string) any {
-	r := e.data["data"].(map[string]any)[key]
-	if r != nil {
-		return r
-	}
-	return ""
+	return e.data["data"].(map[string]any)[key]
 }
 
 // GetElement form ParsedMessageElement

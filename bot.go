@@ -4,6 +4,9 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+// MSG represents map[string]any
+type MSG map[string]any
+
 // APICaller defines basic abilities of supported api caller.
 type APICaller interface {
 	CallAPI(req *APIRequest) (resp *APIResponse, err error)
@@ -17,9 +20,9 @@ type EventHandler interface {
 // APIRequest is used to communicate with onebot client.
 // https://github.com/botuniverse/onebot-11/blob/master/communication/ws.md
 type APIRequest struct {
-	Action string         `json:"action"`
-	Echo   string         `json:"echo"`
-	Params map[string]any `json:"params"`
+	Action string `json:"action"`
+	Echo   string `json:"echo"`
+	Params MSG    `json:"params"`
 }
 
 // APIResponse is the response of calling API
