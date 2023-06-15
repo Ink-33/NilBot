@@ -7,7 +7,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/pkg/errors v0.9.1
 	github.com/tidwall/gjson v1.14.4
-	golang.org/x/sync v0.1.0
+	golang.org/x/sync v0.3.0
 )
 
 require (
