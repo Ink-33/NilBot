@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/RomiChan/websocket v1.4.3-0.20220227141055-9b2c6168c9c5
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.3.1
 	github.com/pkg/errors v0.9.1
 	github.com/tidwall/gjson v1.14.4
 	golang.org/x/sync v0.3.0
